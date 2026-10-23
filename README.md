@@ -47,4 +47,4 @@ flutter build apk --release
 APK path: `build/app/outputs/flutter-apk/app-release.apk`
 
 ## Author
-YOUR NAME – Mahir Ahamed Rohan
+Mahir Ahamed Rohan
