@@ -38,9 +38,11 @@ class FlashcardProvider extends ChangeNotifier {
     final q = query.trim().toLowerCase();
     if (q.isEmpty) return cards;
     return _cards
-        .where((c) =>
-            c.question.toLowerCase().contains(q) ||
-            c.answer.toLowerCase().contains(q))
+        .where(
+          (c) =>
+              c.question.toLowerCase().contains(q) ||
+              c.answer.toLowerCase().contains(q),
+        )
         .toList();
   }
 
@@ -73,12 +75,14 @@ class FlashcardProvider extends ChangeNotifier {
 
   // ---------- CRUD ----------
   void add(String question, String answer) {
-    _cards.add(Flashcard(
-      id: DateTime.now().microsecondsSinceEpoch.toString(),
-      question: question,
-      answer: answer,
-      createdAt: DateTime.now(),
-    ));
+    _cards.add(
+      Flashcard(
+        id: DateTime.now().microsecondsSinceEpoch.toString(),
+        question: question,
+        answer: answer,
+        createdAt: DateTime.now(),
+      ),
+    );
     _persist();
     notifyListeners();
   }
@@ -147,35 +151,32 @@ class FlashcardProvider extends ChangeNotifier {
     const data = [
       (
         'What is a Widget in Flutter?',
-        'The basic building block of a Flutter UI. Everything on screen is a widget.'
+        'The basic building block of a Flutter UI. Everything on screen is a widget.',
       ),
       (
         'StatelessWidget vs StatefulWidget?',
-        'Stateless never changes after build. Stateful holds state and can rebuild when setState is called.'
+        'Stateless never changes after build. Stateful holds state and can rebuild when setState is called.',
       ),
       (
         'What does setState() do?',
-        'Tells Flutter the state changed, so it rebuilds the widget to show new values.'
+        'Tells Flutter the state changed, so it rebuilds the widget to show new values.',
       ),
       (
         'What is hot reload?',
-        'Injects updated code into the running app in about a second, keeping current state.'
+        'Injects updated code into the running app in about a second, keeping current state.',
       ),
-      (
-        'Which file lists packages and assets?',
-        'pubspec.yaml'
-      ),
+      ('Which file lists packages and assets?', 'pubspec.yaml'),
       (
         'What is the purpose of BuildContext?',
-        'A handle to a widget\'s location in the tree. Used to find themes, navigators and providers.'
+        'A handle to a widget\'s location in the tree. Used to find themes, navigators and providers.',
       ),
       (
         'What is a Future in Dart?',
-        'An object representing a value that will be available later, from an async operation.'
+        'An object representing a value that will be available later, from an async operation.',
       ),
       (
         'What does the Navigator do?',
-        'Manages a stack of screens (routes). push adds a screen, pop removes the top one.'
+        'Manages a stack of screens (routes). push adds a screen, pop removes the top one.',
       ),
     ];
     final now = DateTime.now();

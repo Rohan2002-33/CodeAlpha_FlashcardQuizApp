@@ -87,8 +87,10 @@ class SettingsScreen extends StatelessWidget {
           ListTile(
             contentPadding: EdgeInsets.zero,
             leading: Icon(Icons.delete_sweep_outlined, color: scheme.error),
-            title: Text('Delete all cards',
-                style: TextStyle(color: scheme.error)),
+            title: Text(
+              'Delete all cards',
+              style: TextStyle(color: scheme.error),
+            ),
             enabled: cards.hasCards,
             onTap: () => _deleteAll(context),
           ),
@@ -103,8 +105,7 @@ class SettingsScreen extends StatelessWidget {
               context: context,
               applicationName: 'Flashcard Quiz',
               applicationVersion: '1.0.0',
-              applicationLegalese:
-                  'Built for the CodeAlpha App Development Internship (Task 1).',
+              applicationLegalese: 'Built for the CodeAlpha App Development Internship (Task 1).',
             ),
           ),
         ],
@@ -124,10 +125,10 @@ class _SectionTitle extends StatelessWidget {
       child: Text(
         text.toUpperCase(),
         style: Theme.of(context).textTheme.labelLarge?.copyWith(
-              color: Theme.of(context).colorScheme.primary,
-              fontWeight: FontWeight.w700,
-              letterSpacing: 1.2,
-            ),
+          color: Theme.of(context).colorScheme.primary,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 1.2,
+        ),
       ),
     );
   }

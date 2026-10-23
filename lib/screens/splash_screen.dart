@@ -52,23 +52,24 @@ class _SplashScreenState extends State<SplashScreen> {
                   color: scheme.onPrimary.withValues(alpha: 0.15),
                   shape: BoxShape.circle,
                 ),
-                child: Icon(Icons.style_rounded,
-                    size: 64, color: scheme.onPrimary),
+                child: Icon(
+                  Icons.style_rounded,
+                  size: 64,
+                  color: scheme.onPrimary,
+                ),
               ),
               const SizedBox(height: 24),
               Text(
                 'Flashcard Quiz',
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      color: scheme.onPrimary,
-                      fontWeight: FontWeight.w800,
-                    ),
+                  color: scheme.onPrimary,
+                  fontWeight: FontWeight.w800,
+                ),
               ),
               const SizedBox(height: 8),
               Text(
                 'Learn smarter, one card at a time',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
+                style: Theme.of(context).textTheme.bodyMedium
                     ?.copyWith(color: scheme.onPrimary.withValues(alpha: 0.8)),
               ),
             ],

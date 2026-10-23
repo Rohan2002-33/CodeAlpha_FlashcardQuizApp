@@ -15,8 +15,9 @@ class StudyScreen extends StatelessWidget {
     final card = provider.currentCard;
     final scheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    final buttonShape =
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(14));
+    final buttonShape = RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(14),
+    );
 
     return Scaffold(
       appBar: AppBar(
@@ -37,9 +38,9 @@ class StudyScreen extends StatelessWidget {
               title: 'No flashcards yet',
               message: 'Create your first flashcard to start studying.',
               actionLabel: 'Add flashcard',
-              onAction: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (_) => const CardFormScreen()),
-              ),
+              onAction: () => Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (_) => const CardFormScreen())),
             )
           : SafeArea(
               child: Padding(
@@ -50,8 +51,9 @@ class StudyScreen extends StatelessWidget {
                       children: [
                         Text(
                           'Card ${provider.currentIndex + 1} of ${provider.total}',
-                          style: textTheme.titleSmall
-                              ?.copyWith(color: scheme.onSurfaceVariant),
+                          style: textTheme.titleSmall?.copyWith(
+                            color: scheme.onSurfaceVariant,
+                          ),
                         ),
                         const Spacer(),
                         Text(
@@ -111,16 +113,21 @@ class StudyScreen extends StatelessWidget {
                     const SizedBox(height: 20),
                     FilledButton.icon(
                       onPressed: provider.toggleAnswer,
-                      icon: Icon(provider.showAnswer
-                          ? Icons.visibility_off_outlined
-                          : Icons.visibility_outlined),
+                      icon: Icon(
+                        provider.showAnswer
+                            ? Icons.visibility_off_outlined
+                            : Icons.visibility_outlined,
+                      ),
                       label: Text(
-                          provider.showAnswer ? 'Hide Answer' : 'Show Answer'),
+                        provider.showAnswer ? 'Hide Answer' : 'Show Answer',
+                      ),
                       style: FilledButton.styleFrom(
                         minimumSize: const Size.fromHeight(52),
                         shape: buttonShape,
                         textStyle: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w600),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 12),
@@ -128,8 +135,9 @@ class StudyScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: OutlinedButton.icon(
-                            onPressed:
-                                provider.canGoPrevious ? provider.previous : null,
+                            onPressed: provider.canGoPrevious
+                                ? provider.previous
+                                : null,
                             icon: const Icon(Icons.arrow_back_rounded),
                             label: const Text('Previous'),
                             style: OutlinedButton.styleFrom(
@@ -141,7 +149,9 @@ class StudyScreen extends StatelessWidget {
                         const SizedBox(width: 12),
                         Expanded(
                           child: FilledButton.tonalIcon(
-                            onPressed: provider.canGoNext ? provider.next : null,
+                            onPressed: provider.canGoNext
+                                ? provider.next
+                                : null,
                             icon: const Icon(Icons.arrow_forward_rounded),
                             label: const Text('Next'),
                             style: FilledButton.styleFrom(
@@ -226,8 +236,9 @@ class _CardFace extends StatelessWidget {
           ),
           Text(
             hint,
-            style: textTheme.bodySmall
-                ?.copyWith(color: foreground.withValues(alpha: 0.6)),
+            style: textTheme.bodySmall?.copyWith(
+              color: foreground.withValues(alpha: 0.6),
+            ),
           ),
         ],
       ),

@@ -25,9 +25,8 @@ class _LibraryScreenState extends State<LibraryScreen> {
   }
 
   void _openForm([Flashcard? card]) {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => CardFormScreen(card: card)),
-    );
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (_) => CardFormScreen(card: card)));
   }
 
   Future<void> _confirmDelete(Flashcard card) async {
@@ -67,9 +66,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
               child: Center(
                 child: Text(
                   '${provider.total} ${provider.total == 1 ? 'card' : 'cards'}',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleSmall
+                  style: Theme.of(context).textTheme.titleSmall
                       ?.copyWith(color: scheme.onSurfaceVariant),
                 ),
               ),
@@ -120,25 +117,25 @@ class _LibraryScreenState extends State<LibraryScreen> {
                     onAction: () => _openForm(),
                   )
                 : results.isEmpty
-                    ? const EmptyState(
-                        icon: Icons.search_off_rounded,
-                        title: 'No results',
-                        message: 'Try a different search word.',
-                      )
-                    : ListView.separated(
-                        padding: const EdgeInsets.fromLTRB(16, 0, 16, 96),
-                        itemCount: results.length,
-                        separatorBuilder: (_, __) => const SizedBox(height: 10),
-                        itemBuilder: (context, i) {
-                          final card = results[i];
-                          return _CardTile(
-                            number: provider.cards.indexOf(card) + 1,
-                            card: card,
-                            onEdit: () => _openForm(card),
-                            onDelete: () => _confirmDelete(card),
-                          );
-                        },
-                      ),
+                ? const EmptyState(
+                    icon: Icons.search_off_rounded,
+                    title: 'No results',
+                    message: 'Try a different search word.',
+                  )
+                : ListView.separated(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 96),
+                    itemCount: results.length,
+                    separatorBuilder: (_, __) => const SizedBox(height: 10),
+                    itemBuilder: (context, i) {
+                      final card = results[i];
+                      return _CardTile(
+                        number: provider.cards.indexOf(card) + 1,
+                        card: card,
+                        onEdit: () => _openForm(card),
+                        onDelete: () => _confirmDelete(card),
+                      );
+                    },
+                  ),
           ),
         ],
       ),
@@ -202,16 +199,18 @@ class _CardTile extends StatelessWidget {
                       card.question,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: textTheme.titleMedium
-                          ?.copyWith(fontWeight: FontWeight.w600),
+                      style: textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                     const SizedBox(height: 4),
                     Text(
                       card.answer,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: textTheme.bodyMedium
-                          ?.copyWith(color: scheme.onSurfaceVariant),
+                      style: textTheme.bodyMedium?.copyWith(
+                        color: scheme.onSurfaceVariant,
+                      ),
                     ),
                   ],
                 ),
@@ -229,19 +228,23 @@ class _CardTile extends StatelessWidget {
                 itemBuilder: (_) => const [
                   PopupMenuItem(
                     value: _CardAction.edit,
-                    child: Row(children: [
-                      Icon(Icons.edit_outlined, size: 20),
-                      SizedBox(width: 12),
-                      Text('Edit'),
-                    ]),
+                    child: Row(
+                      children: [
+                        Icon(Icons.edit_outlined, size: 20),
+                        SizedBox(width: 12),
+                        Text('Edit'),
+                      ],
+                    ),
                   ),
                   PopupMenuItem(
                     value: _CardAction.delete,
-                    child: Row(children: [
-                      Icon(Icons.delete_outline_rounded, size: 20),
-                      SizedBox(width: 12),
-                      Text('Delete'),
-                    ]),
+                    child: Row(
+                      children: [
+                        Icon(Icons.delete_outline_rounded, size: 20),
+                        SizedBox(width: 12),
+                        Text('Delete'),
+                      ],
+                    ),
                   ),
                 ],
               ),

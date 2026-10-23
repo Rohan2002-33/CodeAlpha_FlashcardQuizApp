@@ -23,18 +23,19 @@ class Flashcard {
   }
 
   Map<String, dynamic> toMap() => {
-        'id': id,
-        'question': question,
-        'answer': answer,
-        'createdAt': createdAt.toIso8601String(),
-      };
+    'id': id,
+    'question': question,
+    'answer': answer,
+    'createdAt': createdAt.toIso8601String(),
+  };
 
   factory Flashcard.fromMap(Map<String, dynamic> map) {
     return Flashcard(
       id: map['id'] as String,
       question: map['question'] as String,
       answer: map['answer'] as String,
-      createdAt: DateTime.tryParse(map['createdAt'] as String? ?? '') ??
+      createdAt:
+          DateTime.tryParse(map['createdAt'] as String? ?? '') ??
           DateTime.now(),
     );
   }

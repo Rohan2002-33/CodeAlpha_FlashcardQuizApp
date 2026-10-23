@@ -38,14 +38,17 @@ class EmptyState extends StatelessWidget {
             const SizedBox(height: 24),
             Text(
               title,
-              style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+              style: textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.w700,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 8),
             Text(
               message,
-              style: textTheme.bodyMedium
-                  ?.copyWith(color: scheme.onSurfaceVariant),
+              style: textTheme.bodyMedium?.copyWith(
+                color: scheme.onSurfaceVariant,
+              ),
               textAlign: TextAlign.center,
             ),
             if (actionLabel != null && onAction != null) ...[

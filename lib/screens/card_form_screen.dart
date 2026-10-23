@@ -16,10 +16,12 @@ class CardFormScreen extends StatefulWidget {
 
 class _CardFormScreenState extends State<CardFormScreen> {
   final _formKey = GlobalKey<FormState>();
-  late final TextEditingController _question =
-      TextEditingController(text: widget.card?.question);
-  late final TextEditingController _answer =
-      TextEditingController(text: widget.card?.answer);
+  late final TextEditingController _question = TextEditingController(
+    text: widget.card?.question,
+  );
+  late final TextEditingController _answer = TextEditingController(
+    text: widget.card?.answer,
+  );
 
   bool get _isEditing => widget.card != null;
 
@@ -102,8 +104,10 @@ class _CardFormScreenState extends State<CardFormScreen> {
                 maxLength: 200,
                 minLines: 2,
                 maxLines: 4,
-                decoration:
-                    _decoration('Question', 'e.g. What is a Widget in Flutter?'),
+                decoration: _decoration(
+                  'Question',
+                  'e.g. What is a Widget in Flutter?',
+                ),
                 validator: (v) => (v == null || v.trim().isEmpty)
                     ? 'Please enter a question'
                     : null,
