@@ -1,17 +1,50 @@
-# flashcard_quiz_app
+# CodeAlpha_FlashcardQuizApp
 
-A new Flutter project.
+Flashcard quiz mobile app built with **Flutter** for the **CodeAlpha App Development Internship – Task 1**.
 
-## Getting Started
+## Features
+- Flashcard with **question on front** and **answer on back** (flip animation)
+- **Show Answer / Hide Answer** button
+- **Next** and **Previous** navigation with progress bar
+- **Add, edit and delete** flashcards (delete has Undo)
+- Search cards in library
+- Data saved on device (survives app restart)
+- Light / Dark / System theme
+- Clean Material 3 UI
 
-This project is a starting point for a Flutter application.
+## Screens
+Splash · Study · Library · Add/Edit Card · Settings
 
-A few resources to get you started if this is your first Flutter project:
+## Tech
+- Flutter + Dart
+- State management: `provider`
+- Local storage: `shared_preferences`
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Project structure
+```
+lib/
+  models/      flashcard.dart
+  services/    storage_service.dart
+  providers/   flashcard_provider.dart, settings_provider.dart
+  theme/       app_theme.dart
+  widgets/     flip_card.dart, empty_state.dart, confirm_dialog.dart
+  screens/     splash, home_shell, study, library, card_form, settings
+  main.dart
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Run locally
+```bash
+git clone https://github.com/Rohan2002-33/CodeAlpha_FlashcardQuizApp.git
+cd CodeAlpha_FlashcardQuizApp
+flutter pub get
+flutter run
+```
+
+## Build APK
+```bash
+flutter build apk --release
+```
+APK path: `build/app/outputs/flutter-apk/app-release.apk`
+
+## Author
+YOUR NAME – Mahir Ahamed Rohan
